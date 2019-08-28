@@ -1,0 +1,38 @@
+/* Variables
+* ===============
+*
+* All variables and most of the configuration is defined on this page. */
+
+
+/*## Gray and brand colors for use across theme.*/
+
+$gray-primary: #333333;
+$gray-secondary: #666666;
+$gray-third: #999999;
+$gray-fourth: #eeeeee;
+
+$placeholder-color: #52697B;
+
+
+/*## Settings for some of the most global styles.*/
+
+
+/*** Background color for `<body>`.*/
+
+$body-bg: #ebebeb;
+$yellow-bg: #FFE600;
+$white-bg: #ffffff;
+//== Paths Paths
+//
+//## Fonts and imaage paths
+$img-path-url: "../../../img";
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+$font-family-primary: "Proxima Nova",
+-apple-system,
+"Helvetica Neue",
+Helvetica,
+Roboto,
+Arial,
+sans-serif;

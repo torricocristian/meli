@@ -1,0 +1,41 @@
+.nav {
+    min-height: 56px;
+    background: $yellow-bg;
+    display: flex;
+    align-items: center;
+
+    .container {
+        display: flex;
+        position: relative;
+        padding-left: 72px;
+        height: 100%;
+    }
+
+
+    &-logo {
+        background-repeat: no-repeat;
+        overflow: hidden;
+        text-indent: -999px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('#{$img-path-url}/Logo_ML.png');
+        background-size: 53px 36px;
+        display: block;
+        height: 36px;
+        width: 53px;
+        left: 0;
+
+        @media (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url('#{$img-path-url}/Logo_ML@2x.png.png');
+            background-size: 53px 36px;
+        }
+    }
+
+    &-search {
+        width: 100%;
+        display: flex;
+    }
+}

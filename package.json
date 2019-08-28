@@ -1,0 +1,29 @@
+{
+  "name": "test-meli",
+  "version": "1.0.0",
+  "description": "test-meli",
+  "main": "index.php",
+  "scripts": {
+    "start": "node_modules/gulp/bin/gulp.js watch",
+    "min": "node_modules/gulp/bin/gulp.js min",
+    "minify-css": "node_modules/gulp/bin/gulp.js minify-css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristian Torrico",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "graceful-fs": "^4.1.11",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-rename": "^1.2.2",
+    "jquery": "^3.4.1",
+    "normalize.css": "^8.0.1"
+  }
+}
