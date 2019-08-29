@@ -3,6 +3,7 @@
     background: $yellow-bg;
     display: flex;
     align-items: center;
+    margin-bottom: 16px;
 
     .container {
         display: flex;
@@ -20,7 +21,7 @@
         top: 50%;
         transform: translateY(-50%);
         background-image: url('#{$img-path-url}/Logo_ML.png');
-        background-size: 53px 36px;
+        background-size: cover;
         display: block;
         height: 36px;
         width: 53px;
@@ -30,12 +31,52 @@
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
             background-image: url('#{$img-path-url}/Logo_ML@2x.png.png');
-            background-size: 53px 36px;
         }
     }
 
     &-search {
         width: 100%;
         display: flex;
+        position: relative;
+
+        &-btn {
+            width: 40px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: $gray-fourth;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &-icon-search {
+        background-image: url('#{$img-path-url}/ic_Search.png');
+        background-size: cover;
+        width: 18px;
+        height: 18px;
+        background-repeat: no-repeat;
+
+        @media (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: url('#{$img-path-url}/ic_Search@2x.png.png');
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 980px) {
+    .nav {
+        .container {
+            padding-left: 90px;
+        }
+
+        &-logo {
+            left: 20px;
+        }
     }
 }

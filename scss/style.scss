@@ -12,6 +12,10 @@
 //components
 @import 'components/forms';
 @import 'components/header';
+@import 'components/items';
+@import 'components/loader';
 
 @import "layout";
+
+@import "pages/results";
 @import "footer";

@@ -1,5 +1,5 @@
 <?php
-function curl_exec_follow($ch, &$maxredirect = null) {
+function curlExecFollow($ch, &$maxredirect = null) {
 
  // we emulate a browser here since some websites detect
  // us as a bot and don't let us do our job
@@ -84,32 +84,54 @@ class meliAuth{
 
 class meliSearch{
    var $auth = null;
-   var $BASE_SEARCH_URL = 'https://api.mercadolibre.com/sites/MLU/search?';
+   var $BASE_SEARCH_URL = 'https://api.mercadolibre.com/sites/MLA/search?';
    var $search_data = null;
    var $querystring_data_key = "q";
    var $search_results = null;
+   var $limit = 4;
 
    function meliSearch($auth, $search_data=null) {
         $this->auth = $auth;
-        $this->search_data = $_REQUEST[$this->querystring_data_key];
-
+        if($search_data){
+            $this->search_data = $search_data;
+        }else{
+            $this->search_data = $_REQUEST[$this->querystring_data_key];
+        }
+       
     }
 
-    function do_search($limit=null, $order_by=null, $order=null){
+    static function deploySearch($data){
+        switch ($data) {
+            case 'ARS':
+                $symbol = '$';
+                break;
+            case 'USD':
+                $symbol = 'U$S';
+                break;
+        }
+
+        return $symbol;
+    }
+
+    static function deployImage($imageUrl){
+       return str_replace("-I.jpg", "-V.jpg",$imageUrl);
+    }
+
+    function doSearch($limit = 4){
+
         if ($this->search_data == null){
             echo "No search parameters were given";
         }else{
             try {
-                $url = $this->BASE_SEARCH_URL . "q=" . $this->search_data . "&access_token" . $this->auth->key;
+                $url = $this->BASE_SEARCH_URL . "q=" . $this->search_data . "&limit=" .$limit . "&access_token" . $this->auth->key;
                 $url = str_replace(" ","%20",$url);
-
 		        $curlInit = curl_init();
                 curl_setopt($curlInit, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($curlInit, CURLOPT_URL, $url);
                 curl_setopt($curlInit, CURLOPT_TIMEOUT, 60);
                 curl_setopt($curlInit, CURLOPT_FOLLOWLOCATION, true);
                 curl_setopt( $curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-                $this->search_results = curl_exec_follow($curlInit);
+                $this->search_results = curlExecFollow($curlInit);
                 echo curl_getinfo($ch);
                 if(curl_exec($curlInit) === FALSE) 
                 {
