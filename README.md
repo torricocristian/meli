@@ -1,14 +1,33 @@
 # Meli - Test
 
-> Layout
+### Resumen
 
-### Prerequisites
+Desafío Mercado Libre
+
+### Enlaces relevantes
+
+Live: http://cristiantorrico.com/challenge/meli/
+
+### Puesta en marcha
+
+Requerimientos Generales
+
+- PHP >= 7.1.0
+- NPM >= 6.4.1
+- MySQL >= 5.7.25 (InnoDB)
+- PHP
+- HTML + CSS
+- jQuery
+- Gulp + Autoprefixer + Concat + Uglify (dev only)
+- SASS (dev only)
+
+### Pre-requisitos
 
 - node
 - npm
 - gulp
 
-## Quick Start:
+## Desarrollo
 
 ```shell
 
