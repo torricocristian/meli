@@ -5,7 +5,7 @@
 
   if($action == 'getItemsSearch'){
 
-    $auth = new meliAuth('APP_USR-3994323554126164-082722-19cc59369eff407d22c445c650915053-152261380');
+    $auth = new meliAuth('APP_USR-3994323554126164-082915-cd9dea8847bc351ca2f8ab25566b4efe-152261380');
     $search = new meliSearch($auth);
     $response = json_decode($search->doSearch());
     $items = $response->results;

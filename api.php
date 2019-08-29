@@ -123,7 +123,7 @@ class meliSearch{
             echo "No search parameters were given";
         }else{
             try {
-                $url = $this->BASE_SEARCH_URL . "q=" . $this->search_data . "&limit=" .$limit . "&access_token" . $this->auth->key;
+                $url = $this->BASE_SEARCH_URL . "q=" . $this->search_data . "&limit=" .$limit . "&access_token=" . $this->auth->key;
                 $url = str_replace(" ","%20",$url);
 		        $curlInit = curl_init();
                 curl_setopt($curlInit, CURLOPT_RETURNTRANSFER, 1);
@@ -146,6 +146,54 @@ class meliSearch{
             }
         }
     }
+
+}
+
+
+class meliItems{
+  var $auth = null;
+  var $BASE_SEARCH_URL = 'https://api.mercadolibre.com/items/';
+  var $search_results = null;
+
+  function meliItems($auth) {
+       $this->auth = $auth;
+  }
+
+   function getItemById($idItem){
+          $url = $this->BASE_SEARCH_URL . $idItem . "?access_token=" . $this->auth->key;
+          $url = str_replace(" ","%20",$url);
+
+
+          $curlInit = curl_init();
+          curl_setopt($curlInit, CURLOPT_RETURNTRANSFER, 1);
+          curl_setopt($curlInit, CURLOPT_URL, $url);
+          curl_setopt($curlInit, CURLOPT_TIMEOUT, 60);
+          curl_setopt($curlInit, CURLOPT_FOLLOWLOCATION, true);
+          curl_setopt( $curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+          $this->search_results = curlExecFollow($curlInit);
+          echo curl_getinfo($ch);
+          if(curl_exec($curlInit) === FALSE) 
+          {
+              die("Curl failed: " . curl_error($curlInit));  // Never goes here
+          }
+          curl_close($curlInit);
+          return $this->search_results;
+   }
+
+
+   static function deployCondition($data){
+      switch ($data) {
+            case 'new':
+                $condition = 'Nuevo';
+                break;
+            case 'old':
+                $condition = 'Viejo';
+                break;
+        }
+
+        return $condition;
+    }
+      
 
 }
 

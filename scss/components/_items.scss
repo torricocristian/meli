@@ -68,6 +68,14 @@
     &:last-child {
         border-bottom: none;
     }
+
+    &__sold {
+        font-size: 14px;
+        color: $gray-secondary;
+        line-height: 18px;
+        display: block;
+        margin-bottom: 16px;
+    }
 }
 
 
