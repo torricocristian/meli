@@ -14,8 +14,6 @@ Requerimientos Generales
 
 - PHP >= 7.1.0
 - NPM >= 6.4.1
-- MySQL >= 5.7.25 (InnoDB)
-- PHP
 - HTML + CSS
 - jQuery
 - Gulp + Autoprefixer + Concat + Uglify (dev only)
